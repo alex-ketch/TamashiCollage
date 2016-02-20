@@ -1,6 +1,7 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
+var webpack     = require('webpack-stream');
 
 var src = {
     css:  'src/**/*css',
@@ -9,14 +10,26 @@ var src = {
 };
 
 // Static Server + watching scss/html files
-gulp.task('serve', function() {
+gulp.task('serve', ['webpack'], function() {
 
     browserSync({
         server: "./src"
     });
 
+    gulp.watch(src.js, ['webpack']);
     gulp.watch(src.html).on('change', reload);
-    gulp.watch(src.js).on('change', reload);
+});
+
+// Bundle JavaScript using WebPack
+gulp.task('webpack', function() {
+  return gulp.src('src/js/scripts.js')
+    .pipe(webpack({
+      output: {
+        filename: 'scripts.min.js'
+      }
+    }))
+    .pipe(gulp.dest('src/js/'))
+    .pipe(reload({stream: true}));
 });
 
 gulp.task('default', ['serve']);
