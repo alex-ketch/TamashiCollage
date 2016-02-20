@@ -11,6 +11,10 @@ header {
 .logo {
   float:left;
 }
+.logo img {
+  height:70px;
+  width:auto;
+}
 
 .title {
   float:right;

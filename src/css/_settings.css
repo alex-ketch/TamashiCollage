@@ -2,14 +2,14 @@
 html {
   box-sizing: border-box;
   background-color:#fff;
-  color:rgb(64, 58, 86);
+  color:#000;
 }
 *, *:before, *:after {
   box-sizing: inherit;
 }
 
 body {
-  background-color:#f6ebdf;
+  background-color:#ffefe6;
   width:95vw;
   height:95vh;
   margin-left:auto;
