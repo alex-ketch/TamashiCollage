@@ -1,7 +1,17 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
 html {
   box-sizing: border-box;
+  background-color:#fff;
+  color:rgb(64, 58, 86);
 }
 *, *:before, *:after {
   box-sizing: inherit;
+}
+
+body {
+  background-color:#f6ebdf;
+  width:95vw;
+  height:95vh;
+  margin-left:auto;
+  margin-right:auto;
 }
