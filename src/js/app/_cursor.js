@@ -1,17 +1,16 @@
-var myPath = new Path();
-myPath.strokeColor = 'black';
-myPath.fillColor = 'blue';
+var app = _app;
+var currentPath;
+newShape();
 
 function onMouseDown(event) {
-  console.log(event.point);
-  if (myPath._segments.length === 0) {
-    myPath.add(event.point);
+  if (currentPath.isEmpty()) {
+    currentPath.add(event.point);
   } else {
-    var pointDist = event.point.getDistance(myPath._segments[0].point);
+    var pointDist = event.point.getDistance(currentPath._segments[0].point);
     if (pointDist < 15) {
-      myPath.closed = true;
+      closePath();
     } else {
-      myPath.add(event.point);
+      currentPath.add(event.point);
     }
   }
 }
