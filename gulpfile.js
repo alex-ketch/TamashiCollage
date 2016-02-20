@@ -5,7 +5,7 @@ var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
 
 var src = {
-    css:  'src/**/*css',
+    css:  'src/css/*.css',
     html: 'src/**/*.html',
     js:   'src/js/**/*.js'
 };
@@ -18,6 +18,7 @@ gulp.task('serve', ['concat'], function() {
     });
 
     gulp.watch(src.js, ['concat']);
+    gulp.watch(src.css).on('change', reload);
     gulp.watch(src.html).on('change', reload);
 });
 
