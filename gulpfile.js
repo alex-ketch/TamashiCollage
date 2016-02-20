@@ -22,7 +22,7 @@ gulp.task('serve', ['webpack'], function() {
 
 // Bundle JavaScript using WebPack
 gulp.task('webpack', function() {
-  return gulp.src('src/js/scripts.js')
+  return gulp.src(['src/js/scripts.js', 'src/js/app/*.js'])
     .pipe(webpack({
       output: {
         filename: 'scripts.min.js'
