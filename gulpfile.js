@@ -1,7 +1,8 @@
 var gulp        = require('gulp');
 var browserSync = require('browser-sync');
 var reload      = browserSync.reload;
-var webpack     = require('webpack-stream');
+var uglify      = require('gulp-uglify');
+var concat      = require('gulp-concat');
 
 var src = {
     css:  'src/**/*css',
@@ -10,7 +11,7 @@ var src = {
 };
 
 // Static Server + watching scss/html files
-gulp.task('serve', ['webpack'], function() {
+gulp.task('serve', ['concat'], function() {
 
     browserSync({
         server: "./src"
@@ -20,14 +21,11 @@ gulp.task('serve', ['webpack'], function() {
     gulp.watch(src.html).on('change', reload);
 });
 
-// Bundle JavaScript using WebPack
-gulp.task('webpack', function() {
+// Bundle JavaScript using Uglify
+gulp.task('concat', function() {
   return gulp.src('src/js/app/*.js')
-    .pipe(webpack({
-      output: {
-        filename: 'app.min.js'
-      }
-    }))
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
     .pipe(gulp.dest('src/js/'))
     .pipe(reload({stream: true}));
 });
