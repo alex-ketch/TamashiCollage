@@ -1,8 +1,16 @@
-var myPath = new Path();
-myPath.strokeColor = 'black';
+var app = _app;
+var currentPath;
+newShape();
 
 function onMouseDown(event) {
-  console.log(event.point);
-  myPath.add(event.point);
+  if (currentPath.isEmpty()) {
+    currentPath.add(event.point);
+  } else {
+    var pointDist = event.point.getDistance(currentPath._segments[0].point);
+    if (pointDist < 15) {
+      closePath();
+    } else {
+      currentPath.add(event.point);
+    }
+  }
 }
-
