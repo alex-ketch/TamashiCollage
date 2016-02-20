@@ -1,0 +1,18 @@
+body {
+  font-family: "warnock-pro-display", serif;
+  text-decoration: none;
+  font-weight:700;
+  font-size:35px;
+}
+
+header {
+  font-size:50px;
+}
+
+#column1, #column2{
+    font-size:16px;
+}
+
+.layerTab {
+  font-size:40px;
+}
