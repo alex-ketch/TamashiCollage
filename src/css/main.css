@@ -224,6 +224,11 @@ textarea {
   padding-bottom: 8px;
 }
 
-.keymap p {
+.keymap h1 {
+  margin:0px 0px;
+}
+
+.smallText {
+  color:#666;
   margin-top:0px;
 }

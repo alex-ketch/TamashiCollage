@@ -45,3 +45,11 @@ header {
   margin:0;
   padding-bottom:5px;
 }
+
+.keymap h1 {
+  font-size:35px;
+}
+
+.smallText {
+  font-size:15px;
+}
