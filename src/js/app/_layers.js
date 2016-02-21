@@ -41,7 +41,7 @@ var bounds = paper.project.view.viewSize;
 for (var i = 0; i < numOfLayers.length; i++) {
   var layerName = numOfLayers[i].className.toString().replace(/ activeLayer/, '');
   var layerColor = app.layers[layerName].fillColor;
-  var layerTexture = app.layers[layerName].texture;
+  var layerTexture = app.layers[layerName].texture ? "/assets/textures/" + app.layers[layerName].texture : null;
 
   new Layer();
 
@@ -50,10 +50,6 @@ for (var i = 0; i < numOfLayers.length; i++) {
   });
 
   var textureImage = new Raster(layerTexture);
-  textureImage.onLoad = function () {
-    this.bounds.width = view.bounds.width;
-    this.bounds.height = view.bounds.height;
-  }
 
   var layerBg = new Path.Rectangle(0,0, bounds._width, bounds._height);
   layerBg.set({fillColor: layerColor})

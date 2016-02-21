@@ -12,22 +12,22 @@ window._app = {
     layers: {
       layerBg: {
         fillColor: "#fae7d3",
-        texture: "",
+        texture: null,
         opacity: 1
       },
       layer1: {
         fillColor: "#007D6E",
-        texture: "",
+        texture: null,
         opacity: 1
       },
       layer2: {
         fillColor: "#D8D618",
-        texture: "",
+        texture: null,
         opacity: 1
       },
       layer3: {
         fillColor: "#FFB873",
-        texture: "",
+        texture: "texture_07.png",
         opacity: 1
       }
     }
