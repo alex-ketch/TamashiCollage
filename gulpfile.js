@@ -24,7 +24,10 @@ gulp.task('serve', ['concat'], function() {
 
 // Bundle JavaScript using Uglify
 gulp.task('concat', function() {
-  return gulp.src(['src/js/app.js', 'src/js/app/*.js'])
+  return gulp.src([
+      'src/js/app.js',
+      'src/js/app/*.js'
+    ])
     .pipe(concat('app.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('src/js/'))
