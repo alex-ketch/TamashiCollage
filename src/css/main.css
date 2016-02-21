@@ -1,6 +1,7 @@
 @import url("./_normalize.css");
 @import url("./_settings.css");
 @import url("./_typography.css");
+@import url("./_tooltip.css");
 
 header {
   background-color:#fff;
@@ -63,7 +64,7 @@ header {
 }
 
 .wrapECO {
-  width:100%;
+  width:170px;
   height:30px;
   position:absolute;
   bottom:0;
@@ -151,5 +152,6 @@ textarea {
   top:50px;
   width: 100%;
   height: 100%;
+  margin: 5px 0 0 5px;
 
 }
