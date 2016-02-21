@@ -50,15 +50,15 @@
 .remodal {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 100%;
+  width: 300px;
   margin-bottom: 10px;
-  padding: 35px;
-
+  padding: 60px 30px 10px;
+  box-shadow: -7px 7px rgba(84, 76, 68, 0.3);
   -webkit-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
 
-  color: #2b2e38;
-  background: #fff;
+  color: #fff;
+  background: rgba(34, 30, 31, 1);
 }
 
 .remodal.remodal-is-opening,
@@ -96,8 +96,8 @@
   display: block;
   overflow: visible;
 
-  width: 35px;
-  height: 35px;
+  width: 50px;
+  height: 50px;
   margin: 0;
   padding: 0;
 
@@ -106,7 +106,7 @@
   transition: color 0.2s;
   text-decoration: none;
 
-  color: #95979c;
+  color: #fff;
   border: 0;
   outline: 0;
   background: transparent;
@@ -114,12 +114,12 @@
 
 .remodal-close:hover,
 .remodal-close:focus {
-  color: #2b2e38;
+  color: #00f6ff;
 }
 
 .remodal-close:before {
-  font-size: 25px;
-  line-height: 35px;
+  font-size: 50px;
+  line-height: 50px;
 
   position: absolute;
   top: 0;
@@ -127,7 +127,7 @@
 
   display: block;
 
-  width: 35px;
+  width: 50px;
 
   content: "\00d7";
   text-align: center;
@@ -138,43 +138,47 @@
 .remodal-confirm,
 .remodal-cancel {
   font: inherit;
+  font-size:18px;
+  line-height:18px;
 
   display: inline-block;
   overflow: visible;
 
-  min-width: 110px;
-  margin: 0;
-  padding: 12px 0;
+  width: auto;
+  margin: 0 36px;
+  padding: 0;
 
   cursor: pointer;
   -webkit-transition: background 0.2s;
   transition: background 0.2s;
   text-align: center;
   vertical-align: middle;
-  text-decoration: none;
 
   border: 0;
+  border-bottom:3px solid #fff;
   outline: 0;
 }
 
 .remodal-confirm {
   color: #fff;
-  background: #81c784;
+  background:transparent;
 }
 
 .remodal-confirm:hover,
 .remodal-confirm:focus {
-  background: #66bb6a;
+  background:transparent;
+  color: #00f6ff;
 }
 
 .remodal-cancel {
   color: #fff;
-  background: #e57373;
+  background:transparent;
 }
 
 .remodal-cancel:hover,
 .remodal-cancel:focus {
-  background: #ef5350;
+  background:transparent;
+  color: #00f6ff;
 }
 
 /* Remove inner padding and border in Firefox 4+ for the button tag. */
@@ -304,4 +308,35 @@
 
 .lt-ie9 .remodal {
   width: 700px;
+}
+
+
+/* minicolors panel */
+.minicolors-theme-default.minicolors {
+  line-height:20px;
+  padding-top:8px;
+}
+
+.minicolors-inline .minicolors-panel {
+  border: 7px solid #fff;
+}
+
+.minicolors-picker {
+  border-radius: 5px;
+  background: #fff;
+  border: solid 4px #2b2e38;
+  width:14px;
+}
+.minicolors-grid .minicolors-picker {
+  border: solid 4px #2b2e38;
+  width: 14px;
+  height: 14px;
+  border-radius: 14px;
+  margin-top: -15px;
+  margin-left: -7px;
+}
+.minicolors-grid .minicolors-picker > div {
+  width: 10px;
+height: 10px;
+border-radius: 10px;
 }

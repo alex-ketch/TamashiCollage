@@ -5,7 +5,7 @@ var uglify      = require('gulp-uglify');
 var concat      = require('gulp-concat');
 
 var src = {
-    css:  'src/css/*.css',
+    css:  ['src/css/*.css', 'src/js/lib/**/*.css'],
     html: 'src/**/*.html',
     js:   'src/js/**/*.js'
 };
