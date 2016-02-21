@@ -31,7 +31,7 @@ header {
   width:200px;
   float:left;
   position:relative;
-  height:100%;
+  height: calc (97vh - 50px);
 }
 
 .toolsTop {
