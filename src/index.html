@@ -4,12 +4,29 @@
     <meta charset="utf-8">
     <title>Tamashi Collage</title>
     <script src="https://use.typekit.net/gyc5snp.js"></script>
-<script>try{Typekit.load({ async: true });}catch(e){}</script>
+    <script>try{Typekit.load({ async: true });}catch(e){}</script>
+
+    <!-- Main app javascript -->
     <script type="text/javascript" src="./js/paper-full.min.js"></script>
     <script type="text/paperscript" src="./js/app.min.js" canvas="myCanvas"></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+
+    <!-- Tooltip library -->
     <script type="text/javascript" src="./js/tooltip.js"></script>
     <script type="text/javascript" src="./js/hoverintent.js"></script>
+
+    <!-- Color picker library -->
+    <script type="text/javascript" src="./js/lib/miniColors/jquery.minicolors.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./js/lib/miniColors/jquery.minicolors.css">
+
+    <!-- Modal box library -->
+    <script type="text/javascript" src="./js/lib/remodal/remodal.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="./js/lib/remodal/remodal.css">
+    <link rel="stylesheet" type="text/css" href="./js/lib/remodal/remodal-default-theme.css">
+
+
+    <!-- Stylesheets -->
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
   </head>
@@ -135,6 +152,19 @@
 <div id="column2">
 <div class="dimensions">canvas area: <textarea class="width" name="width" rows="1" cols="4">800</textarea> x <textarea class="height" name="height" rows="1" cols="4">600</textarea></div>
 <canvas id="myCanvas"></canvas>
+
+
+<!-- Modal popup -->
+<div class="remodal" data-remodal-id="modal">
+  <button data-remodal-action="close" class="remodal-close"></button>
+
+  <div class="picker colorPicker"></div>
+  <div class="picker texturePicker"></div>
+
+  <button data-remodal-action="cancel" class="remodal-cancel">Cancel</button>
+  <button data-remodal-action="confirm" class="remodal-confirm">OK</button>
+</div>
+
 </div>
   </body>
 </html>
