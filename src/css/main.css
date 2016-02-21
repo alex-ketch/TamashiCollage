@@ -63,6 +63,10 @@ header {
   margin: 5px 0;
 }
 
+.activeLayer {
+  border: solid 5px rgba(0, 0, 0, 1);
+}
+
 .wrapECO {
   width:170px;
   height:30px;

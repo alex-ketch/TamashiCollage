@@ -30,9 +30,6 @@ window._app = {
 };
 
 function newShape() {
-  // console.log(app.activeLayerLevel);
-
-
   currentPath = new Path()
   // currentPath.fillColor = app.layers[app.activeLayer].fillColor;
   // currentPath.strokeColor = app.strokeColor;

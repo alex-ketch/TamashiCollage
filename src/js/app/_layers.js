@@ -4,8 +4,15 @@ function activateLayer(name, index) {
   app.activeLayer = name;
   app.activeLayerIndex = index;
   paper.project.layers[index].activate();
+  highlightActiveLayer(name);
   closePath();
-  console.log(paper.project.activeLayer);
+}
+
+highlightActiveLayer("layer3");
+
+function highlightActiveLayer(target) {
+  $(".layers > div").removeClass("activeLayer");
+  $("." + target).addClass("activeLayer");
 }
 
 function selectLayer(layer) {
@@ -30,7 +37,7 @@ function selectLayer(layer) {
 var bounds = paper.project.view.viewSize;
 
 for (var i = 0; i < numOfLayers.length; i++) {
-  var layerName = numOfLayers[i].className.toString();
+  var layerName = numOfLayers[i].className.toString().replace(/ activeLayer/, '');
   var layerColor = app.layers[layerName].fillColor;
 
   new Layer();
@@ -42,14 +49,6 @@ for (var i = 0; i < numOfLayers.length; i++) {
     fillColor: layerColor,
     // fillRule: 'nonzero'
   });
-
-  console.log(layerName + " " + layerColor);
-  console.log(paper.project.activeLayer);
-
-
-  // var path = new Path.Rectangle(0, 0, bounds._width, bounds._height);
-  // path.fillColor = layerColor;
-  // console.log(path._style._values);
 
   numOfLayers[i].addEventListener('click', selectLayer);
 }
