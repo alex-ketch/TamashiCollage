@@ -1,7 +1,7 @@
 function setLayerColor(color, opacity) {
   app.layers[app.activeLayer].fillColor = color;
   app.layers[app.activeLayer].opacity = opacity;
-  project.layers[app.activeLayerIndex].set({
+  project.layers[app.activeLayerIndex].firstChild.children[1].set({
     fillColor: color,
     opacity: opacity
   });
