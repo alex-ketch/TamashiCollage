@@ -1,9 +1,5 @@
 var numOfLayers = document.querySelectorAll(".layers > div");
 
-function addListner(event) {
-  selectLayer(layerName);
-}
-
 function selectLayer(layer) {
   switch (this.className) {
     case "layerBg":
