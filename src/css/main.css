@@ -133,14 +133,14 @@ header {
   height:50px;
   /*background-color:#00f6ff; */
   position:fixed;
-  bottom:5.5vh;
+  bottom:3.5vh;
   padding:7px;
   vertical-align:middle;
 }
 
 #column2 {
   width: calc(90vw - 200px);
-  height: calc(95vh - 70px - 50px);
+  height: calc(97vh - 70px - 50px);
   float:right;
   position:relative;
 }
@@ -197,6 +197,6 @@ textarea {
   background-color:#00f6ff;
   position:absolute;
   left:125px;
-  top: calc(95vh - 77px);
+  top: calc(97vh - 80px);
   z-index:2;
 }

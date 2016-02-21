@@ -3,6 +3,7 @@ body {
   text-decoration: none;
   font-weight:700;
   font-size:35px;
+  letter-spacing: 0.1em;
 }
 
 header {
@@ -27,6 +28,10 @@ header {
   vertical-align: middle;
   word-break: break-all;
   line-height:48px;
+}
+
+.toolsTop {
+  letter-spacing: 0em;
 }
 
 .toolsBottom {
