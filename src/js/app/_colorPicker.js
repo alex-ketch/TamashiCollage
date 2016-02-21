@@ -15,6 +15,6 @@ $('.picker.colorPicker').minicolors({
   inline: true,
   change: function(value, opacity) {
     setLayerColor(value, opacity);
-    $("." + app.activeLayer).css("background-color", value); 
+    $("." + app.activeLayer).css("background-color", value);
   }
 });

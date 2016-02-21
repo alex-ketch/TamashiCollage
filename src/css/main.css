@@ -9,12 +9,14 @@ header {
   overflow:hidden;
 }
 
-.logo {
-  float:left;
+.shortcut {
+  float: left;
+  padding: 0 17px;
+  width: 50px;
 }
-.logo img {
-  height:70px;
-  width:auto;
+.shortcut img {
+  height:20px;
+  width:20px;
 }
 
 .title {
@@ -63,9 +65,20 @@ header {
   height:90px;
   width:200px;
   margin: 5px 0;
-  background-color:pink;
 }
 
+.layerBg {
+  background-color:#fae7d3;
+}
+.layer1 {
+  background-color:#007D6E;
+}
+.layer2 {
+  background-color:#D8D618;
+}
+.layer3 {
+  background-color:#FFB873;
+}
 .activeLayer {
   border: solid 5px rgba(0, 0, 0, 1);
   box-shadow: -1px 2px rgba(84, 76, 68, 0.3);
@@ -199,4 +212,18 @@ textarea {
   left:125px;
   top: calc(97vh - 80px);
   z-index:2;
+}
+
+.keymap img {
+  width:600px;
+  height:auto;
+  border: solid 30px #fff;
+  border-top: none;
+  border-bottom: none;
+  background-color: #00f6ff;
+  padding-bottom: 8px;
+}
+
+.keymap p {
+  margin-top:0px;
 }

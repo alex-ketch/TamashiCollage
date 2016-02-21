@@ -13,3 +13,5 @@ function onKeyDown(event) {
     closePath();
   }
 }
+
+$(".shortcut").attr("data-remodal-target", "modalKeys");

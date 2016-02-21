@@ -11,7 +11,7 @@ window._app = {
     strokeColor: "#43597D",
     layers: {
       layerBg: {
-        fillColor: "#FFAABB",
+        fillColor: "#fae7d3",
         opacity: 1
       },
       layer1: {
@@ -19,11 +19,11 @@ window._app = {
         opacity: 1
       },
       layer2: {
-        fillColor: "#A8AFAF",
+        fillColor: "#D8D618",
         opacity: 1
       },
       layer3: {
-        fillColor: "#F77A53",
+        fillColor: "#FFB873",
         opacity: 1
       }
     }

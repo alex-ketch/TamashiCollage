@@ -50,7 +50,7 @@
 .remodal {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 300px;
+  max-width: 600px;
   margin:auto;
   padding: 60px 30px 10px;
   box-shadow: -7px 7px rgba(84, 76, 68, 0.3);
