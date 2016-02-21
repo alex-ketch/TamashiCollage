@@ -7,7 +7,11 @@
 <script>try{Typekit.load({ async: true });}catch(e){}</script>
     <script type="text/javascript" src="./js/paper-full.min.js"></script>
     <script type="text/paperscript" src="./js/app.min.js" canvas="myCanvas"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/tooltip.js"></script>
+    <script type="text/javascript" src="./js/hoverintent.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css">
+
   </head>
   <body>
     <header>
@@ -16,51 +20,115 @@
     </header>
 <div id="column1">
 <div class="toolsTop">
-  <div class="undo"><img class="buttons" src="./assets/buttons/buttonUndo.jpg"></div>
-  <div class="redo"><img class="buttons" src="./assets/buttons/buttonRedo.jpg"></div>
-  <div class="lassoPoly"><img class="buttons" src="./assets/buttons/buttonLassoP.jpg"></div>
-  <div class="lassoFree"><img class="buttons" src="./assets/buttons/buttonLassoF.jpg"></div>
-  <div class="clearAll"><img class="buttons" src="./assets/buttons/buttonClearAll.jpg"></div>
+  <div class="undo">
+    <abbr title="Undo" rel="tooltip">
+      <img class="buttons" src="./assets/buttons/buttonUndo.jpg">
+    </abbr>
+  </div>
+  <div class="redo">
+    <abbr title="Redo" rel="tooltip">
+      <img class="buttons" src="./assets/buttons/buttonRedo.jpg">
+    </abbr>
+  </div>
+  <div class="lassoPoly">
+    <abbr title="Polygon" rel="tooltip">
+      <img class="buttons" src="./assets/buttons/buttonLassoP.jpg">
+    </abbr>
+    </div>
+  <div class="lassoFree">
+    <abbr title="Freehand" rel="tooltip">
+      <img class="buttons" src="./assets/buttons/buttonLassoF.jpg">
+    </abbr>
+  </div>
+  <div class="clearAll">
+    <abbr title="Start Over" rel="tooltip">
+      <img class="buttons" src="./assets/buttons/buttonClearAll.jpg">
+    </abbr>
+  </div>
 </div>
 <div class="layers">
   <div class="layer3">
     <div class="layerTab"><h1>3</h1></div>
       <div class="texture"></div>
       <div class="wrapECO">
-        <div class="edit"><img class="buttons" src="./assets/buttons/buttonEdit.jpg"></div>
-        <div class="clear"><img class="buttons" src="./assets/buttons/buttonClear.jpg"></div>
-        <div class="opacity"><img class="buttons" src="./assets/buttons/buttonOpacity.jpg">xxxxxx</div>
+        <div class="edit">
+          <abbr title="Edit Color & Texture" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonEdit.jpg">
+          </abbr>
+        </div>
+        <div class="clear">
+          <abbr title="Clear Layer" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonClear.jpg">
+          </abbr>
+        </div>
+        <div class="opacity">
+          <abbr title="Layer Opacity" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonOpacity.jpg">
+          </abbr>xxxxxx</div>
       </div>
   </div>
   <div class="layer2">
     <div class="layerTab"><h1>2</h1></div>
       <div class="texture"></div>
       <div class="wrapECO">
-        <div class="edit"><img class="buttons" src="./assets/buttons/buttonEdit.jpg"></div>
-        <div class="clear"><img class="buttons" src="./assets/buttons/buttonClear.jpg"></div>
-          <div class="opacity"><img class="buttons" src="./assets/buttons/buttonOpacity.jpg">xxxxxx</div>
+        <div class="edit">
+          <abbr title="Edit Color & Texture" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonEdit.jpg">
+          </abbr>
+        </div>
+        <div class="clear">
+          <abbr title="Clear Layer" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonClear.jpg">
+          </abbr>
+        </div>
+        <div class="opacity">
+          <abbr title="Layer Opacity" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonOpacity.jpg">
+          </abbr>xxxxxx</div>
       </div>
   </div>
   <div class="layer1">
     <div class="layerTab"><h1>1</h1></div>
       <div class="texture"></div>
       <div class="wrapECO">
-        <div class="edit"><img class="buttons" src="./assets/buttons/buttonEdit.jpg"></div>
-        <div class="clear"><img class="buttons" src="./assets/buttons/buttonClear.jpg"></div>
-        <div class="opacity"><img class="buttons" src="./assets/buttons/buttonOpacity.jpg">xxxxxx</div>
+        <div class="edit">
+          <abbr title="Edit Color & Texture" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonEdit.jpg">
+          </abbr>
+        </div>
+        <div class="clear">
+          <abbr title="Clear Layer" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonClear.jpg">
+          </abbr>
+        </div>
+        <div class="opacity">
+          <abbr title="Layer Opacity" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonOpacity.jpg">
+          </abbr>xxxxxx</div>
       </div>
   </div>
   <div class="layerBg">
     <div class="layerTab"><h1>B</h1></div>
       <div class="texture"></div>
       <div class="wrapECO">
-        <div class="edit"><img class="buttons" src="./assets/buttons/buttonEdit.jpg"></div>
+        <div class="edit">
+          <abbr title="Edit Color & Texture" rel="tooltip">
+            <img class="buttons" src="./assets/buttons/buttonEdit.jpg">
+          </abbr>
+        </div>
       </div>
   </div>
 </div>
 <div class="toolsBottom">
-  <div class="save"><img class="buttons" src="./assets/buttons/buttonSave.jpg"></div>
-  <div class="export"><img class="buttons" src="./assets/buttons/buttonExport.jpg"></div>
+  <div class="save">
+    <abbr title="Save Process Temporary" rel="tooltip">
+      <img class="buttons" src="./assets/buttons/buttonSave.jpg">
+    </abbr>
+  </div>
+  <div class="export">
+    <abbr title="Export Final Art" rel="tooltip">
+      <img class="buttons" src="./assets/buttons/buttonExport.jpg">
+    </abbr></div>
 </div>
 </div>
 
