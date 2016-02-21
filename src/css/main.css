@@ -5,7 +5,7 @@
 
 header {
   background-color:#fff;
-  height:70px;
+  height:75px;
   overflow:hidden;
 }
 
@@ -18,7 +18,6 @@ header {
 }
 
 .title {
-  float:right;
 }
 
 .buttons {
@@ -38,6 +37,8 @@ header {
 .toolsTop {
   width:100%;
   height:50px;
+  padding:11px 0;
+  margin-left:-10px;
 }
 
 .undo, .redo, .lassoPoly, .lassoFree, .clearAll {
@@ -51,6 +52,7 @@ header {
 
 .layers {
   width:100%;
+  margin-left:-10px;
 }
 
 .layers > div {
@@ -61,10 +63,16 @@ header {
   height:90px;
   width:200px;
   margin: 5px 0;
+  background-color:pink;
 }
 
 .activeLayer {
   border: solid 5px rgba(0, 0, 0, 1);
+  box-shadow: -1px 2px rgba(84, 76, 68, 0.3);
+}
+
+.activeLayer h1 {
+  margin-top:20px;
 }
 
 .wrapECO {
@@ -76,11 +84,17 @@ header {
   background-color:#231F20;
 }
 
-.edit, .clear, .opacity {
+/* .edit, .clear, .opacity {
   display:inline-block;
   z-index:6;
-}
+} */
 
+.edit {
+  float:left;
+}
+.clear {
+  float:right;
+}
 .layerTab {
   width:30px;
   background-color:#fff;
@@ -91,20 +105,17 @@ header {
 .texture {
   width: 0;
   height: 0;
-  border-bottom: 90px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 85px solid rgba(0, 0, 0, 0.2);
   border-left: 170px solid transparent;
   z-index:0;
   position: absolute;
   right: 0;
 }
 
-.edit, .clear {
-  width:15%;
-}
-
 .edit .buttons, .clear .buttons, .opacity .buttons {
   width:30px;
   height:30px;
+  margin:0 8px;
 }
 
 .opacity {
@@ -120,42 +131,73 @@ header {
 .toolsBottom {
   width:200px;
   height:50px;
-  background-color:pink;
+  /*background-color:#00f6ff; */
   position:fixed;
-  bottom:5vh;
+  bottom:5.5vh;
   padding:7px;
   vertical-align:middle;
 }
 
 #column2 {
-  width: calc(95vw - 200px);
+  width: calc(90vw - 200px);
   height: calc(95vh - 70px - 50px);
   float:right;
   position:relative;
 }
 
 .dimensions {
-  height:50px;
+  height:auto;
+  width:200px;
   position:absolute;
-  right:0;
+  right:11px;
+  top:-48px;
+  background-color:#fff;
+  padding:17px;
+  /* border: dashed 3px #000; */
 }
 
+
 .width, .height {
-  line-height:18px;
+  line-height:22px;
+  vertical-align: middle;
+  display:inline-block;
+  padding:4px 4px 0px 4px;
+  width:
 }
 
 textarea {
   outline:none;
   resize:none;
   overflow:hidden;
+  display:inline-block;
 }
 
 #myCanvas {
   background-color:#999;
   position:absolute;
   top:50px;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 5px);
+  height: calc(100% - 5px);
   margin: 5px 0 0 5px;
 
+}
+
+.strip {
+  width:70px;
+  height:6px;
+  background-color:#00f6ff;
+  position:absolute;
+  right:17px;
+  top:-49px;
+  z-index:2;
+}
+
+.strip2 {
+  width:60px;
+  height:8px;
+  background-color:#00f6ff;
+  position:absolute;
+  left:125px;
+  top: calc(95vh - 77px);
+  z-index:2;
 }

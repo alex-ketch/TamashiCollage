@@ -7,11 +7,19 @@ body {
 
 header {
   font-size:50px;
+  text-align:center;
+  text-decoration:underline;
 }
 
-#column1, #column2{
+#column1 {
     font-size:16px;
 }
+
+#column2{
+    font-size:22px;
+    line-height:22px;
+}
+
 
 .layerTab h1{
   font-size:40px;
@@ -23,4 +31,12 @@ header {
 
 .toolsBottom {
   text-align: right;
+}
+
+.dimensions {
+  text-align:center;
+}
+.dimensions p {
+  margin:0;
+  padding-bottom:5px;
 }
