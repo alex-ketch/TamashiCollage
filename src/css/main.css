@@ -118,7 +118,8 @@ header {
   background-color:pink;
   position:fixed;
   bottom:5vh;
-
+  padding:7px;
+  vertical-align:middle;
 }
 
 #column2 {
