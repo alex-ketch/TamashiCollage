@@ -23,10 +23,29 @@ function selectLayer(layer) {
   }
 }
 
+var bounds = paper.project.view.viewSize;
+console.log(bounds);
+
 for (var i = 0; i < numOfLayers.length; i++) {
   var layerName = numOfLayers[i].className.toString();
+  var layerColor = app.layers[layerName].fillColor;
 
-  // layerName = new Layer();
+  layerName = new Layer();
+
+var path = new CompoundPath({
+    children: [
+      new Path.Rectangle(0, 0, bounds._width, bounds._height)
+    ],
+    fillColor: layerColor,
+    fillRule: 'nonzero'
+});
+
+  // var path = new CompoundPath({
+  //   children: [
+  //     new Path.Rectangle(0, 0, bounds._width, bounds._height)
+  //   ],
+  //   fillColor: layerColor
+  // });
 
   numOfLayers[i].addEventListener('click', selectLayer);
 }

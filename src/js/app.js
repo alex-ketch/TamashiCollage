@@ -29,13 +29,18 @@ window._app = {
 };
 
 function newShape() {
-  currentPath = new Path();
+  console.log(project.activeLayer);
+  // project.activeLayer.addChild(
+    currentPath = new Path()
+  // );
   currentPath.fillColor = app.layers[app.activeLayer].fillColor;
-  currentPath.strokeColor = app.strokeColor;
+  // currentPath.strokeColor = app.strokeColor;
   currentPath.selected = true;
 }
 
 function closePath() {
+  currentPath.selected = false;
   currentPath.closed = true;
+  project.layers[4].children[0].addChild(currentPath);
   newShape();
 }
