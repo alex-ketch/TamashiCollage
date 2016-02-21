@@ -1,7 +1,7 @@
 var numOfLayers = document.querySelectorAll(".layers > div");
 
 function activateLayer(name, index) {
-  app.activeLayer = name;
+  app.activeLayer = name.replace(/ activeLayer/, '');
   app.activeLayerIndex = index;
   paper.project.layers[index].activate();
   highlightActiveLayer(name);
@@ -12,12 +12,14 @@ function activateLayer(name, index) {
 highlightActiveLayer("layer3");
 
 function highlightActiveLayer(target) {
-  $(".layers > div").removeClass("activeLayer");
-  $("." + target).addClass("activeLayer");
+  if (!target.includes('activeLayer')) {
+    $(".layers > div").removeClass("activeLayer");
+    $("." + target).addClass("activeLayer");
+  }
 }
 
 function selectLayer(layer) {
-  switch (this.className) {
+  switch (this.className.replace(/ activeLayer/, '')) {
     case "layerBg":
       activateLayer(this.className, 0);
       break;
