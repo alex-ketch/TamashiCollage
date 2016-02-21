@@ -57,3 +57,4 @@ for (var i = 0; i < numOfLayers.length; i++) {
 }
 
 paper.project.layers.reverse();
+paper.project.layers[paper.project.layers.length-1].activate();
