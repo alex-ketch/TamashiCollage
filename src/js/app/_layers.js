@@ -6,6 +6,7 @@ function activateLayer(name, index) {
   paper.project.layers[index].activate();
   highlightActiveLayer(name);
   closePath();
+  $('.picker.colorPicker').minicolors('value', app.layers[app.activeLayer].fillColor);
 }
 
 highlightActiveLayer("layer3");
