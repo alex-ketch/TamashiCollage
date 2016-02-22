@@ -53,3 +53,18 @@ header {
 .smallText {
   font-size:15px;
 }
+
+.colophon {
+  font-size:14px;
+  letter-spacing: 1px;
+  color:#00f6ff;
+}
+
+.colophon a {
+  text-decoration:overline;
+  color: #000;
+}
+
+a:visited {
+  color:#666;
+}
