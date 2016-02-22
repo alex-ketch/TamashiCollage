@@ -1,5 +1,5 @@
 function clearLayer(layer) {
-  if (paper.project.layers[layer].index !== 4) {
+  if (paper.project.layers[layer].index !== 5) {
     paper.project.layers[layer].getItem({class: CompoundPath}).removeChildren(1);
     paper.view.draw();
   } else {

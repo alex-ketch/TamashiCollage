@@ -32,6 +32,9 @@ function selectLayer(layer) {
     case "layer3":
       activateLayer(this.className, 3);
       break;
+    case "layer4":
+      activateLayer(this.className, 4);
+      break;
     default:
       alert("error selecting layer!");
   }
@@ -61,11 +64,14 @@ for (var i = 0; i < numOfLayers.length; i++) {
   }
 
   numOfLayers[i].addEventListener('click', selectLayer);
+
+  console.log(layerName + ": " + paper.project.activeLayer.index);
 }
 
 paper.project.layers.reverse();
 
 activateLayer("layerBg", 0);
+activateLayer("layer4", 4);
 activateLayer("layer3", 3);
 activateLayer("layer2", 2);
 activateLayer("layer1", 1);
