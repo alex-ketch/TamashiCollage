@@ -6,6 +6,9 @@ function clearLayer(layer) {
     paper.project.layers[layer].getItem({class: paper.Raster}).set({
       source: null
     });
+    $("." + app.activeLayer + " .texture").css({
+      'backgroundImage': 'none'
+    });
   }
 }
 
