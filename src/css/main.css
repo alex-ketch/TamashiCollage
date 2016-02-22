@@ -195,7 +195,6 @@ header {
   vertical-align: middle;
   display:inline-block;
   padding:4px 4px 0px 4px;
-  width:
 }
 
 textarea {
@@ -266,7 +265,7 @@ textarea {
   width: 25px;
   height:25px;
   padding:2px;
-  background-color:#fff3e6;;
+  background-color:#fff3e6;
 }
 
 /* hidden buttons for future use */
