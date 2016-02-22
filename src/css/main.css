@@ -234,15 +234,16 @@ textarea {
 }
 
 .texturePicker {
-  overflow-y: scroll;
-  width: 60%;
+  width: 100px;
   margin: 0;
   padding: 0;
-  height: 166px;
-  display: inline-block
+  display: inline-block;
+  line-height:35px;
 }
 
 .texturePicker img {
-  width: 20%;
-  height: auto;
+  width: 25px;
+  height:25px;
+  padding:2px;
+  background-color:#fff3e6;;
 }

@@ -139,13 +139,14 @@
 .remodal-cancel {
   font: inherit;
   font-size:18px;
+  text-align:center;
   line-height:18px;
 
-  display: inline-block;
+  display: block;
   overflow: visible;
 
-  width: auto;
-  margin: 0 30px;
+  width: 40px;
+  margin: 20px auto;
   padding: 0;
 
   cursor: pointer;
