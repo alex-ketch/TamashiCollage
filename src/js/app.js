@@ -12,7 +12,7 @@ window._app = {
     layers: {
       layerBg: {
         fillColor: "#fae7d3",
-        texture: null,
+        texture: "texture_02.png",
         opacity: 1
       },
       layer1: {
