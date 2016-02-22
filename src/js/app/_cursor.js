@@ -11,33 +11,35 @@ $('.lassoPoly').on('click', function(){
 });
 
 function onMouseDown(event) {
-  if (currentPath.isEmpty()) {
-    currentPath.add(event.point);
-  } else {
-    var pointDist = event.point.getDistance(currentPath._segments[0].point);
-    if (pointDist < 15) {
-      closePath();
-    } else {
+  if (app.activeLayer !== "layerBg") {
+    if (currentPath.isEmpty()) {
       currentPath.add(event.point);
+    } else {
+      var pointDist = event.point.getDistance(currentPath._segments[0].point);
+      if (pointDist < 15) {
+        closePath();
+      } else {
+        currentPath.add(event.point);
+      }
     }
   }
 }
 
 function onMouseDrag(event) {
-  if (app.tool === "free") {
-    tool.minDistance = 8;
-    currentPath.add(event.point);
-  } else if (app.tool === "poly" && !currentPath.closed) {
-    console.log(event.point);
-    console.log(currentPath.lastSegment.index);
-    currentPath.segments[currentPath.lastSegment.index].set({
-      point: event.point
-    })
+  if (app.activeLayer !== "layerBg") {
+    if (app.tool === "free") {
+      tool.minDistance = 8;
+      currentPath.add(event.point);
+    } else if (app.tool === "poly" && !currentPath.closed) {
+      currentPath.segments[currentPath.lastSegment.index].set({
+        point: event.point
+      })
+    }
   }
 }
 
 function onMouseUp(event) {
- if (app.tool === "free") {
+ if (app.tool === "free" && app.activeLayer !== "layerBg") {
     closePath();
   }
 };
