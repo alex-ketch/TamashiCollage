@@ -57,3 +57,4 @@ function onKeyDown(event) {
 }
 
 $(".shortcut").attr("data-remodal-target", "modalKeys");
+$(window).load($('[data-remodal-id=modalKeys]').remodal().open());
