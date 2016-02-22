@@ -2,6 +2,14 @@ var app = _app;
 var currentPath;
 newShape();
 
+$('.lassoFree').on('click', function(){
+  app.tool = "free";
+});
+
+$('.lassoPoly').on('click', function(){
+  app.tool = "poly";
+});
+
 function onMouseDown(event) {
   if (currentPath.isEmpty()) {
     currentPath.add(event.point);
@@ -14,3 +22,22 @@ function onMouseDown(event) {
     }
   }
 }
+
+function onMouseDrag(event) {
+  if (app.tool === "free") {
+    tool.minDistance = 8;
+    currentPath.add(event.point);
+  } else if (app.tool === "poly" && !currentPath.closed) {
+    console.log(event.point);
+    console.log(currentPath.lastSegment.index);
+    currentPath.segments[currentPath.lastSegment.index].set({
+      point: event.point
+    })
+  }
+}
+
+function onMouseUp(event) {
+ if (app.tool === "free") {
+    closePath();
+  }
+};
