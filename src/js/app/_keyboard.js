@@ -32,6 +32,8 @@ function onKeyDown(event) {
     if (clearConfirm == true) {
       clearLayer(app.activeLayerIndex);
     }
+  } else if (event.modifiers.shift && event.key === "e") {
+    canvasExport();
   } else if (event.key === "q") {
     activateLayer("layer1", 1);
     $('[data-remodal-id=modal]').remodal().open();
@@ -44,6 +46,10 @@ function onKeyDown(event) {
   } else if (event.key === "p") {
     activateLayer("layerBg", 0);
     $('[data-remodal-id=modal]').remodal().open();
+  } else if (event.key === "c") {
+    app.tool = "free";
+  } else if (event.key === "v") {
+    app.tool = "poly";
   }
 }
 

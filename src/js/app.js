@@ -61,7 +61,9 @@ function closePath() {
   }
 }
 
-$(".export").on('click', function(){
+function canvasExport() {
   paper.view.draw();
   paper.view.element.toBlob(function(blob) { saveAs(blob, "littleWhittle.png");});
-})
+}
+
+$(".export").on('click', canvasExport);
