@@ -1,13 +1,11 @@
 function onKeyDown(event) {
   event.preventDefault();
-  console.log(event.key);
   if (event.key === "backspace") {
     if (!currentPath.isEmpty()) {
       currentPath.removeSegment(currentPath.lastSegment.index)
     }
   } else if (event.key === "space") {
-    console.log(app);
-    // console.log(currentPath);
+    // console.log(app);
   } else if (event.key === "enter") {
     closePath();
   } else if (event.key === "1") {

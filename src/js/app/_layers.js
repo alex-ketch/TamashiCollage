@@ -64,8 +64,6 @@ for (var i = 0; i < numOfLayers.length; i++) {
   }
 
   numOfLayers[i].addEventListener('click', selectLayer);
-
-  console.log(layerName + ": " + paper.project.activeLayer.index);
 }
 
 paper.project.layers.reverse();
