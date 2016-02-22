@@ -1,5 +1,5 @@
 function clearLayer(layer) {
-  paper.project.layers[layer].children[0].removeChildren(1);
+  paper.project.layers[layer].getItem({class: CompoundPath}).removeChildren(1);
   paper.view.draw();
 }
 
