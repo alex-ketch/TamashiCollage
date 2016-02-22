@@ -232,3 +232,17 @@ textarea {
   color:#666;
   margin-top:0px;
 }
+
+.texturePicker {
+  overflow-y: scroll;
+  width: 60%;
+  margin: 0;
+  padding: 0;
+  height: 166px;
+  display: inline-block
+}
+
+.texturePicker img {
+  width: 20%;
+  height: auto;
+}
