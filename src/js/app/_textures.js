@@ -5,8 +5,9 @@ function setTexture(targetTexture) {
   });
   $("." + app.activeLayer + " .texture").css({
     'backgroundImage': 'url("/assets/textures/small/' + targetTexture + '")',
+    'backgroundPosition': 'top',
     'border': 'none',
-    'width': '160px',
+    'width': '100%',
     'height': '80px'
   });
   // $("." + app.activeLayer + " .texture").hide();

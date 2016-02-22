@@ -68,17 +68,32 @@ header {
 }
 
 .layerBg {
-  background-color:#fae7d3;
+  background-color:#f5bf93
 }
 .layer1 {
-  background-color:#007D6E;
+  background-color:#931ba8;
+}
+.layer1 .texture {
+  background-image: url("/assets/textures/small/texture_02.png");
+  border: medium none;
+  width: 100%;
+  height: 80px;
+  background-position:top;
 }
 .layer2 {
-  background-color:#D8D618;
+  background-color:#d7d518;
 }
 .layer3 {
-  background-color:#FFB873;
+  background-color:#14deaf;
 }
+.layer3 .texture{
+  background-image: url("/assets/textures/small/texture_10.png");
+  border: medium none;
+  width: 100%;
+  height: 80px;
+  background-position:top;
+}
+
 .activeLayer {
   border: solid 5px rgba(0, 0, 0, 1);
   box-shadow: -1px 2px rgba(84, 76, 68, 0.3);
@@ -113,6 +128,8 @@ header {
   background-color:#fff;
   float:left;
   height:100%;
+  position:absolute;
+  z-index:3;
 }
 
 .texture {
@@ -191,6 +208,7 @@ textarea {
   width: calc(100% - 15px);
   height: calc(100% - 22px);
   margin: 5px 10px 0px 5px;
+  background-color:#fff;
 
 }
 
@@ -205,7 +223,7 @@ textarea {
 }
 
 .strip2 {
-  width:60px;
+  width:70px;
   height:8px;
   background-color:#00f6ff;
   position:absolute;
@@ -246,4 +264,13 @@ textarea {
   height:25px;
   padding:2px;
   background-color:#fff3e6;;
+}
+
+/* hidden buttons for future use */
+
+.undo img, .redo img, .save img{
+  display:none;
+}
+.undo, .redo{
+  width:15px;
 }
