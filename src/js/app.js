@@ -35,17 +35,30 @@ window._app = {
 
 function newShape() {
   currentPath = new Path()
-  // currentPath.fillColor = app.layers[app.activeLayer].fillColor;
-  // currentPath.strokeColor = app.strokeColor;
-  currentPath.selected = true;
+  // currentPath.selected = true;
+  currentPath.set({
+    strokeColor: "black",
+    dashArray: [10, 6],
+    strokeWidth: 2,
+    strokeCap: "round",
+    strokeJoin: "round"
+  })
 }
 
 function closePath() {
-  currentPath.selected = false;
-  currentPath.closed = true;
+  if (currentPath) {
+    currentPath.selected = false;
+    currentPath.set({
+      strokeColor: null,
+      strokeWidth: 0
+    })
+    currentPath.closed = true;
+  }
 
-  paper.project.activeLayer.getItem({class: paper.CompoundPath}).addChild(currentPath);
-  newShape();
+  if (app.activeLayer !== "layerBg") {
+    paper.project.activeLayer.getItem({class: paper.CompoundPath}).addChild(currentPath);
+    newShape();
+  }
 }
 
 $(".export").on('click', function(){
