@@ -5,11 +5,15 @@ function setLayerColor(color, opacity) {
   if (app.activeLayer !== "layerBg") {
     project.layers[app.activeLayerIndex].firstChild.children[1].set({
     fillColor: color,
-    opacity: opacity
+    });
+    project.layers[app.activeLayerIndex].firstChild.set({
+      opacity: opacity
     });
   } else {
     project.layers[app.activeLayerIndex].getItem({class: paper.Path}).set({
       fillColor: color,
+    });
+    project.layers[app.activeLayerIndex].firstChild.set({
       opacity: opacity
     });
   }
