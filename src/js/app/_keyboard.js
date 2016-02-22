@@ -3,8 +3,7 @@ function onKeyDown(event) {
   // console.log(event.key);
   if (event.key === "backspace") {
     if (!currentPath.isEmpty()) {
-      currentPath.removeSegment(currentPath._segments.length - 1);
-      console.log(currentPath._segments.length);
+      currentPath.removeSegment(currentPath.lastSegment.index)
     }
   } else if (event.key === "space") {
     console.log(app);
