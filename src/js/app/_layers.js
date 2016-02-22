@@ -45,16 +45,20 @@ for (var i = 0; i < numOfLayers.length; i++) {
 
   new Layer();
 
-  var compClipMask = new CompoundPath({
-    clipMask: true,
-  });
-
   var textureImage = new Raster(layerTexture);
 
   var layerBg = new Path.Rectangle(0,0, bounds._width, bounds._height);
   layerBg.set({fillColor: layerColor})
 
-  var layerGroup = new Group([compClipMask, layerBg, textureImage]);
+  if (layerName !== "layerBg") {
+    var compClipMask = new CompoundPath({
+      clipMask: true,
+    });
+
+    var layerGroup = new Group([compClipMask, layerBg, textureImage]);
+  } else {
+    var layerGroup = new Group([layerBg, textureImage]);
+  }
 
   numOfLayers[i].addEventListener('click', selectLayer);
 }

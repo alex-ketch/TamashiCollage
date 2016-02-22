@@ -1,6 +1,12 @@
 function clearLayer(layer) {
-  paper.project.layers[layer].getItem({class: CompoundPath}).removeChildren(1);
-  paper.view.draw();
+  if (paper.project.layers[layer].index !== 4) {
+    paper.project.layers[layer].getItem({class: CompoundPath}).removeChildren(1);
+    paper.view.draw();
+  } else {
+    paper.project.layers[layer].getItem({class: paper.Raster}).set({
+      source: null
+    });
+  }
 }
 
 $('.clear').on('click', function(){
