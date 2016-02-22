@@ -61,5 +61,8 @@ for (var i = 0; i < numOfLayers.length; i++) {
 
 paper.project.layers.reverse();
 
+activateLayer("layerBg", 0);
 activateLayer("layer3", 3);
+activateLayer("layer2", 2);
+activateLayer("layer1", 1);
 paper.project.view.draw();

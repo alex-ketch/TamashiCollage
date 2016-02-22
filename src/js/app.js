@@ -3,9 +3,9 @@ debugger;
 var tempPath;
 
 window._app = {
-    tool: "vector",
-    activeLayer: "layer3",
-    activeLayerIndex: 3,
+    tool: "poly",
+    activeLayer: "layer1",
+    activeLayerIndex: 1,
     activePath: tempPath,
     fillColor: "#FFAABB",
     strokeColor: "#43597D",
