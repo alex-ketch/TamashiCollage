@@ -33,10 +33,11 @@ function onMouseDown(event) {
   }
 }
 
+
+// tool.minDistance = 8;
 function onMouseDrag(event) {
   if (app.activeLayer !== "layerBg") {
     if (app.tool === "free") {
-      tool.minDistance = 8;
       currentPath.add(event.point);
     } else if (app.tool === "poly" && !currentPath.closed) {
       currentPath.segments[currentPath.lastSegment.index].set({
