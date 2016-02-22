@@ -3,7 +3,7 @@ debugger;
 var tempPath;
 
 window._app = {
-    tool: "poly",
+    tool: "free",
     activeLayer: "layer1",
     activeLayerIndex: 1,
     activePath: tempPath,
