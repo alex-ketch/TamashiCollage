@@ -27,7 +27,7 @@ window._app = {
       },
       layer3: {
         fillColor: "#14deaf",
-        texture: "texture_07.png",
+        texture: "texture_10.png",
         opacity: 1
       }
     }
