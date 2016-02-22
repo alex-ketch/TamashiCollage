@@ -1,13 +1,11 @@
 function onKeyDown(event) {
   event.preventDefault();
-  console.log(event.key);
   if (event.key === "backspace") {
     if (!currentPath.isEmpty()) {
       currentPath.removeSegment(currentPath.lastSegment.index)
     }
   } else if (event.key === "space") {
-    console.log(app);
-    // console.log(currentPath);
+    // console.log(app);
   } else if (event.key === "enter") {
     closePath();
   } else if (event.key === "1") {
@@ -16,6 +14,8 @@ function onKeyDown(event) {
     activateLayer("layer2", 2);
   } else if (event.key === "3") {
     activateLayer("layer3", 3);
+  } else if (event.key === "4") {
+    activateLayer("layer4", 4);
   } else if (event.key === "0") {
     activateLayer("layerBg", 0);
   } else if (event.modifiers.shift && event.key === "n") {
@@ -42,6 +42,9 @@ function onKeyDown(event) {
     $('[data-remodal-id=modal]').remodal().open();
   } else if (event.key === "e") {
     activateLayer("layer3", 3);
+    $('[data-remodal-id=modal]').remodal().open();
+  } else if (event.key === "r") {
+    activateLayer("layer4", 4);
     $('[data-remodal-id=modal]').remodal().open();
   } else if (event.key === "p") {
     activateLayer("layerBg", 0);
