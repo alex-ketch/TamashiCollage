@@ -48,6 +48,10 @@ header {
   display:inline-block;
 }
 
+.lassoFree.active img, .lassoPoly.active img {
+  border: 2px solid black;
+}
+
 .clearAll {
   float:right;
 

@@ -51,10 +51,17 @@ function onKeyDown(event) {
     $('[data-remodal-id=modal]').remodal().open();
   } else if (event.key === "c") {
     app.tool = "free";
+    $('.lassoPoly').removeClass("active");
+    $('.lassoFree').addClass("active");
   } else if (event.key === "v") {
     app.tool = "poly";
+    $('.lassoFree').removeClass("active");
+    $('.lassoPoly').addClass("active");
   }
 }
 
 $(".shortcut").attr("data-remodal-target", "modalKeys");
-$(window).load($('[data-remodal-id=modalKeys]').remodal().open());
+$( document ).ready(function() {
+  $('[data-remodal-id=modalKeys]').remodal().open();
+  $('.lassoFree').addClass("active");
+});

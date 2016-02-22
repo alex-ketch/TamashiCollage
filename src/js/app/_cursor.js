@@ -2,12 +2,20 @@ var app = _app;
 var currentPath;
 newShape();
 
+// $(window).load(function(){
+//   $('.lassoFree').addClass("active");
+// });
+
 $('.lassoFree').on('click', function(){
   app.tool = "free";
+  $(this).addClass("active");
+  $('.lassoPoly').removeClass("active");
 });
 
 $('.lassoPoly').on('click', function(){
   app.tool = "poly";
+  $(this).addClass("active");
+  $('.lassoFree').removeClass("active");
 });
 
 function onMouseDown(event) {
