@@ -47,3 +47,8 @@ function closePath() {
   paper.project.activeLayer.getItem({class: paper.CompoundPath}).addChild(currentPath);
   newShape();
 }
+
+$(".export").on('click', function(){
+  paper.view.draw();
+  paper.view.element.toBlob(function(blob) { saveAs(blob, "littleWhittle.png");});
+})
