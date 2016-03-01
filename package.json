@@ -23,8 +23,9 @@
   "license": "UNLICENSED",
   "devDependencies": {
     "browser-sync": "^2.11.1",
+    "gh-pages": "^0.10.0",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
-    "gulp-uglify": "^1.5.2"
+    "gulp-uglify": "^1.5.2",
   }
 }
