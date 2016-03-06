@@ -59,10 +59,10 @@ function closePath() {
     currentPath.closed = true;
 
     var clipGroup = paper.project.activeLayer.getItem({class: paper.CompoundPath });
-    var temp = clipGroup.unite(currentPath);
+    var temp = clipGroup.subtract(currentPath);
 
-    if (temp === clipGroup || currentPath.intersects(clipGroup)) {
-      clipGroup = clipGroup.replaceWith(clipGroup.subtract(currentPath));
+    if (temp.area === clipGroup.area) {
+      clipGroup = clipGroup.replaceWith(clipGroup.unite(currentPath));
     } else {
       clipGroup = clipGroup.replaceWith(clipGroup.subtract(currentPath));
     }
