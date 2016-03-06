@@ -56,6 +56,9 @@ for (var i = 0; i < numOfLayers.length; i++) {
   if (layerName !== "layerBg") {
     var compClipMask = new CompoundPath({
       clipMask: true,
+      children: [
+        new Path.Rectangle(0,0, bounds._width, bounds._height)
+      ]
     });
 
     var layerGroup = new Group([compClipMask, layerBg, textureImage]);
@@ -69,8 +72,8 @@ for (var i = 0; i < numOfLayers.length; i++) {
 paper.project.layers.reverse();
 
 activateLayer("layerBg", 0);
-activateLayer("layer4", 4);
 activateLayer("layer3", 3);
 activateLayer("layer2", 2);
 activateLayer("layer1", 1);
+activateLayer("layer4", 4);
 paper.project.view.draw();
