@@ -4,8 +4,8 @@ var tempPath;
 
 window._app = {
     tool: "free",
-    activeLayer: "layer1",
-    activeLayerIndex: 1,
+    activeLayer: "layer4",
+    activeLayerIndex: 4,
     activePath: tempPath,
     fillColor: "#FFAABB",
     strokeColor: "#43597D",
@@ -40,7 +40,6 @@ window._app = {
 
 function newShape() {
   currentPath = new Path()
-  // currentPath.selected = true;
   currentPath.set({
     strokeColor: "black",
     dashArray: [10, 6],
@@ -51,17 +50,27 @@ function newShape() {
 }
 
 function closePath() {
-  if (currentPath) {
+  if (!currentPath.isEmpty()) {
     currentPath.selected = false;
     currentPath.set({
       strokeColor: null,
       strokeWidth: 0
     })
     currentPath.closed = true;
-  }
 
-  if (app.activeLayer !== "layerBg") {
-    paper.project.activeLayer.getItem({class: paper.CompoundPath}).addChild(currentPath);
+    var clipGroup = paper.project.activeLayer.getItem({class: paper.CompoundPath });
+    var temp = clipGroup.subtract(currentPath);
+
+    if (temp.area === clipGroup.area) {
+      clipGroup = clipGroup.replaceWith(clipGroup.unite(currentPath));
+    } else {
+      clipGroup = clipGroup.replaceWith(clipGroup.subtract(currentPath));
+    }
+    clipGroup.clipMask = true;
+
+    currentPath.remove();
+    temp.remove();
+
     newShape();
   }
 }
