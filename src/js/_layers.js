@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import paper from 'paper';
+import paper from '../lib/paper-full.min.js';
 import {app, closePath} from './index.js';
 
 export function activateLayer(name, index) {

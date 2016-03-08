@@ -1,5 +1,5 @@
-$( function()
-{
+import $ from 'jquery';
+function tooltip() {
     var targets = $( '[rel~=tooltip]' ),
         target  = false,
         tooltip = false,

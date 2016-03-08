@@ -1,8 +1,9 @@
 import $ from 'jquery';
-import paper from '../lib/paper-full.min.js';
+import paper from 'paper';
 import {app, tool, closePath} from './index.js';
 import {activateLayer} from './_layers.js';
 import clearLayer from './_clear.js';
+import remodal from 'remodal';
 
 export default function shortcuts() {
   tool.onKeyDown = function(event) {

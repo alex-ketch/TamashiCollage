@@ -18,7 +18,7 @@ gulp.task('serve', ['concat'], function() {
     });
 
     gulp.watch(src.js, ['concat']);
-    gulp.watch(src.css).on('change', reload);
+    gulp.watch(src.css);
     gulp.watch(src.html).on('change', reload);
 });
 
