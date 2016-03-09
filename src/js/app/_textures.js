@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import paper from '../lib/paper-full.min.js';
+import paper from 'paper';
 import {app} from './index.js';
 
 function setTexture(targetTexture) {
