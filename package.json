@@ -38,6 +38,9 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "canvas-to-blob": "0.0.0",
+    "blob-polyfill": "^1.0.20150320",
+    "filesaver.js": "^0.2.0",
     "jquery": "^2.2.1",
     "jquery-minicolors": "^2.1.10",
     "paper": "^0.9.25",

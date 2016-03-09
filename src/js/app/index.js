@@ -7,6 +7,7 @@ import cursor, {draw} from './_cursor.js';
 import colorPicker from './_colorPicker.js';
 import setTexture from './_textures.js';
 import shortcuts from './_keyboard.js';
+import exportCanvas from './_export.js';
 
 // import tooltip from '../lib/tooltip.js'
 
@@ -59,10 +60,10 @@ window.onload = function() {
   shortcuts();
   colorPicker();
   paper.view.draw();
-  $(".export").on('click', canvasExport);
   $(".shortcut").attr("data-remodal-target", "modalKeys");
   // $('[data-remodal-id=modalKeys]').remodal().open();
   $('.lassoFree').addClass("active");
+  exportCanvas();
 }
 
 function newShape() {
@@ -101,10 +102,3 @@ export function closePath() {
     newShape();
   }
 }
-
-function canvasExport() {
-  paper.view.draw();
-  paper.view.element.toBlob(function(blob) { saveAs(blob, "littleWhittle.png");});
-}
-
-
