@@ -18,22 +18,23 @@ function highlightActiveLayer(target) {
   }
 }
 
-function selectLayer(layer) {
-  switch (this.className.replace(/ activeLayer/, '')) {
+export function selectLayer(layer) {
+  let target = layer;
+  switch (target.className.replace(/ activeLayer/, '')) {
     case "layerBg":
-      activateLayer(this.className, 0);
+      activateLayer(target.className, 0);
       break;
     case "layer1":
-      activateLayer(this.className, 1);
+      activateLayer(target.className, 1);
       break;
     case "layer2":
-      activateLayer(this.className, 2);
+      activateLayer(target.className, 2);
       break;
     case "layer3":
-      activateLayer(this.className, 3);
+      activateLayer(target.className, 3);
       break;
     case "layer4":
-      activateLayer(this.className, 4);
+      activateLayer(target.className, 4);
       break;
     default:
       alert("error selecting layer!");
@@ -66,7 +67,9 @@ export default function setup() {
       var layerGroup = new paper.Group([compClipMask, layerBg, textureImage]);
     }
 
-    numOfLayers[i].addEventListener('click', selectLayer);
+    numOfLayers[i].addEventListener('click', function(){
+      selectLayer(this);
+    });
   }
 
   paper.project.layers.reverse();

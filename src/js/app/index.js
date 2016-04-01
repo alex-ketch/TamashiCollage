@@ -8,8 +8,9 @@ import colorPicker from './_colorPicker.js';
 import setTexture from './_textures.js';
 import shortcuts from './_keyboard.js';
 import exportCanvas from './_export.js';
-
-// import tooltip from '../lib/tooltip.js'
+import {selectLayer} from './_layers.js'
+import clearLayer from './_clear.js';
+import tooltip from '../lib/tooltip.js';
 
 export let tool = new paper.Tool();
 
@@ -60,10 +61,18 @@ window.onload = function() {
   shortcuts();
   colorPicker();
   paper.view.draw();
+  $('.clear').on('click', function(){
+    let clearConfirm = confirm("Reset layer?");
+    if (clearConfirm == true) {
+      selectLayer($(this).parent().parent()[0]);
+      clearLayer(app.activeLayerIndex);
+    }
+  });
   $(".shortcut").attr("data-remodal-target", "modalKeys");
-  // $('[data-remodal-id=modalKeys]').remodal().open();
+  $('[data-remodal-id=modalKeys]').remodal().open();
   $('.lassoFree').addClass("active");
-  exportCanvas();
+  tooltip();
+  exportCanvas()
 }
 
 function newShape() {
