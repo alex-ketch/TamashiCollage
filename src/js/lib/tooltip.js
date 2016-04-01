@@ -1,9 +1,12 @@
-$( function()
-{
+import $ from 'jquery';
+import hoverIntent from './hoverintent.js';
+
+export default function() {
     var targets = $( '[rel~=tooltip]' ),
-        target  = false,
-        tooltip = false,
-        title   = false;
+        target  = null,
+        tooltip = null,
+        title   = null,
+        tip;
 
     var displayTooltips = function() {
         target  = $( this );
@@ -18,14 +21,13 @@ $( function()
                .html( tip )
                .appendTo( 'body' );
 
-        var init_tooltip = function()
-        {
+        let init_tooltip = function() {
             if( $( window ).width() < tooltip.outerWidth() * 1.5 )
                 tooltip.css( 'max-width', $( window ).width() / 2 );
             else
                 tooltip.css( 'max-width', 340 );
 
-            var pos_left = target.offset().left + ( target.outerWidth() / 2 ) - ( tooltip.outerWidth() / 2 ),
+            let pos_left = target.offset().left + ( target.outerWidth() / 2 ) - ( tooltip.outerWidth() / 2 ),
                 pos_top  = target.offset().top - tooltip.outerHeight() - 35;
 
             if( pos_left < 0 )
@@ -46,7 +48,7 @@ $( function()
 
             if( pos_top < 0 )
             {
-                var pos_top  = target.offset().top + target.outerHeight();
+                let pos_top  = target.offset().top + target.outerHeight();
                 tooltip.addClass( 'top' );
             }
             else
@@ -54,23 +56,22 @@ $( function()
 
             tooltip.css( { left: pos_left, top: pos_top } )
                    .animate( { top: '+=8', opacity: 0.85 }, 380 );
-        };
+          };
 
         init_tooltip();
         $( window ).resize( init_tooltip );
     }
 
     var remove_tooltip = function() {
-        tooltip.animate( { top: '-=8', opacity: 0 }, 50, function()
-        {
-            $( this ).remove();
-        });
+      tooltip.animate( { top: '-=8', opacity: 0 }, 50, function() {
+          $( this ).remove();
+      });
 
-        target.attr( 'title', tip );
+      target.attr( 'title', tip );
     };
 
     // target.bind( 'mouseleave', remove_tooltip );
 
     targets.hoverIntent(displayTooltips, remove_tooltip);
     targets.bind( 'click', remove_tooltip );
-});
+}
