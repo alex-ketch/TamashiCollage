@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import paper from 'paper';
-import {app} from './index.js';
+import {app} from './_settings.js';
 
 function setTexture(targetTexture) {
   var tempLayer = paper.project.activeLayer.getItem({class: paper.Raster});

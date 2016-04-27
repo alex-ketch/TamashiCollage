@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import paper from 'paper';
-import {app, closePath} from './index.js';
+import {closePath} from './_shapes.js';
+import {app} from './_settings.js';
+
 
 export function activateLayer(name, index) {
   app.activeLayer = name.replace(/ activeLayer/, '');

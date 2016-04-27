@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import paper from 'paper';
-import {app} from './index.js';
+import {app} from './_settings.js';
 import {selectLayer} from './_layers.js';
 
 export default function clearLayer(layer) {

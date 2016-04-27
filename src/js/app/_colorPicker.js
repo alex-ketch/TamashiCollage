@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import {app} from './index.js';
+import {app} from './_settings.js';
 import paper from 'paper';
 import minicolors from 'jquery-minicolors';
 import remodal from 'remodal';

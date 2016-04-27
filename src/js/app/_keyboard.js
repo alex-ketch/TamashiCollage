@@ -1,7 +1,8 @@
 import $ from 'jquery';
 import paper from 'paper';
-import {app, tool, closePath} from './index.js';
-import {activateLayer} from './_layers.js';
+import {tool, closePath} from './_settings.js';
+import {app} from './_settings.js';
+import {activateLayer, selectLayer} from './_layers.js';
 import clearLayer from './_clear.js';
 import remodal from 'remodal';
 
@@ -32,8 +33,10 @@ export default function shortcuts() {
       if (clearAllConfirm == true) {
         var numOfLayers = document.querySelectorAll(".layers > div");
         for (var i = 0; i < numOfLayers.length; i++) {
-          clearLayer(i)
+          selectLayer(numOfLayers[i]);
+          clearLayer(app.activeLayerIndex);
         }
+        selectLayer(numOfLayers[0]);
       }
     } else if (event.modifiers.shift && event.key === "l") {
       var clearConfirm = confirm("Reset layer?");

@@ -1,6 +1,8 @@
 import $ from 'jquery';
 import paper from 'paper';
-import {app, closePath, tool} from './index.js';
+import {closePath} from './_shapes.js';
+import {app, tool} from './_settings.js';
+
 
 export default function cursor() {
   $('.lassoFree').on('click', function(){
@@ -24,7 +26,6 @@ export default function cursor() {
         app.currentPath.add(event.point);
       } else {
         var pointDist = event.point.getDistance(app.currentPath._segments[0].point);
-        console.log(pointDist);
         if (pointDist < 15) {
           closePath();
         } else {
