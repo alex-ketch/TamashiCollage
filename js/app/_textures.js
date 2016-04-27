@@ -1,3 +1,7 @@
+import $ from 'jquery';
+import paper from 'paper';
+import {app} from './_settings.js';
+
 function setTexture(targetTexture) {
   var tempLayer = paper.project.activeLayer.getItem({class: paper.Raster});
   tempLayer.set({
@@ -10,9 +14,10 @@ function setTexture(targetTexture) {
     'width': '100%',
     'height': '80px'
   });
-  // $("." + app.activeLayer + " .texture").hide();
 }
 
-$(".texturePicker img").on('click', function(){
-  setTexture($(this).attr("data"));
-})
+export default function() {
+  $(".texturePicker img").on('click', function(){
+    setTexture($(this).attr("data"));
+  });
+}
