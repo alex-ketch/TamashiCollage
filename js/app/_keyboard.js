@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import paper from 'paper';
-import {tool, closePath} from './_settings.js';
-import {app} from './_settings.js';
+import {closePath} from './_shapes.js';
+import {app, tool} from './_settings.js';
 import {activateLayer, selectLayer} from './_layers.js';
 import clearLayer from './_clear.js';
 import remodal from 'remodal';
