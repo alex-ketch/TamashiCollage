@@ -11,7 +11,7 @@ export default function shortcuts() {
     event.preventDefault();
     if (event.key === "backspace") {
       if (!currentPath.isEmpty()) {
-        currentPath.removeSegment(currentPath.lastSegment.index)
+        currentPath.removeSegment(currentPath.lastSegment.index);
       }
     } else if (event.key === "space") {
       // console.log(app);
@@ -69,5 +69,5 @@ export default function shortcuts() {
       $('.lassoFree').removeClass("active");
       $('.lassoPoly').addClass("active");
     }
-  }
+  };
 }

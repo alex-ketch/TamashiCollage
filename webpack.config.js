@@ -5,8 +5,8 @@ var plugins = [
     new webpack.optimize.CommonsChunkPlugin({
         name:      'main', // Move dependencies to our main file
         children:  true, // Look for common dependencies in all children,
-        minChunks: 2, // How many times a dependency must come up before being extracted
-    }),
+        minChunks: 2 // How many times a dependency must come up before being extracted
+    })
 ];
 
 if (production) {
@@ -22,15 +22,15 @@ if (production) {
     // This plugin prevents Webpack from creating chunks
     // that would be too small to be worth loading separately
     new webpack.optimize.MinChunkSizePlugin({
-        minChunkSize: 51200, // ~50kb
+        minChunkSize: 51200 // ~50kb
     }),
 
     // This plugin minifies all the Javascript code of the final bundle
     new webpack.optimize.UglifyJsPlugin({
       mangle:   true,
       compress: {
-        warnings: false, // Suppress uglification warnings
-      },
+        warnings: false // Suppress uglification warnings
+      }
     }),
 
     // This plugins defines various variables that we can set to false
@@ -41,9 +41,9 @@ if (production) {
       __DEVELOPMENT__: !production,
       __DEVTOOLS__:    !production,
       'process.env':   {
-        BABEL_ENV: JSON.stringify(process.env.NODE_ENV),
-      },
-    }),
+        BABEL_ENV: JSON.stringify(process.env.NODE_ENV)
+      }
+    })
   ]);
 }
 
