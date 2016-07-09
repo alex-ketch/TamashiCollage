@@ -1,27 +1,12 @@
 import $ from 'jquery';
 import paper from 'paper';
 import {app} from './_settings.js';
-import {selectLayer} from './_layers.js';
+import {initializeLayer, selectLayer} from './_layers.js';
 
 export default function clearLayer(layer) {
-  if (paper.project.layers[layer].index !== 5) {
-    let bounds = paper.project.view.viewSize;
-    let cleanLayer = new paper.CompoundPath({
-      clipMask: true,
-      children: [
-        new paper.Path.Rectangle(0,0, bounds._width, bounds._height)
-      ]
-    });
-
-    paper.project.activeLayer.getItem({class: paper.CompoundPath }).replaceWith(cleanLayer);
-    paper.view.draw();
-  } else {
-    paper.project.layers[layer].getItem({class: paper.Raster}).set({
-      source: null
-    });
-    $("." + app.activeLayer + " .texture").css({
-      'backgroundImage': 'none'
-    });
+  let target = paper.project.getItem({recursive: false, name: layer});
+  if(target.getItem({name: 'clipMask'})) {
+    target.getItem({name: 'clipMask'}).removeChildren(1);
   }
 }
 
