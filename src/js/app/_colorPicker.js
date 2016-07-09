@@ -8,22 +8,23 @@ require('style!minicolors_css');
 // require('style!remodal_theme');
 
 export default function() {
-  function setLayerColor(color, opacity) {
+  function setLayerColor(target, color, opacity) {
     app.layers[app.activeLayer].fillColor = color;
     app.layers[app.activeLayer].opacity = opacity;
 
-    if (app.activeLayer !== "layerBg") {
-      paper.project.layers[app.activeLayerIndex].firstChild.children[1].set({
-      fillColor: color,
+    if (paper.project.activeLayer.name !== "layerBg") {
+      paper.project.activeLayer.getItem({name: 'layerBG'}).set({
+        fillColor: color,
       });
-      paper.paper.project.layers[app.activeLayerIndex].firstChild.set({
+      // TODO: Imporve accessor to the group
+      paper.project.layers[app.activeLayerIndex].firstChild.set({
         opacity: opacity
       });
     } else {
-      paper.paper.project.layers[app.activeLayerIndex].getItem({class: paper.Path}).set({
+      paper.project.activeLayer.getItem({class: paper.Path}).set({
         fillColor: color,
       });
-      paper.paper.project.layers[app.activeLayerIndex].firstChild.set({
+      paper.project.activeLayer.firstChild.set({
         opacity: opacity
       });
     }
@@ -36,7 +37,8 @@ export default function() {
     opacity: true,
     inline: true,
     change: function(value, opacity) {
-      setLayerColor(value, opacity);
+      let target = $('.activeLayer')[0].className.replace(' activeLayer', '');
+      setLayerColor(target, value, opacity);
       $("." + app.activeLayer).css("background-color", value);
     }
   });
