@@ -12,27 +12,23 @@ function highlightActiveLayer(target) {
 
 export function selectLayer(layer) {
   let _layer = (layer.className) ? layer.className.replace(/ activeLayer/, '') : layer;
-    paper.project.getItem({name: _layer}).activate();
-    highlightActiveLayer(_layer)
-    closePath();
-    // $('.picker.colorPicker').minicolors('value', app.layers[app.activeLayer].fillColor);
+  app.activeLayer = _layer;
+  app.activeLayerIndex = _layer.replace(/layer/, '');
+  let target = paper.project.layers[_layer];
+  target.activate();
+  highlightActiveLayer(_layer)
+  closePath();
+  // $('.picker.colorPicker').minicolors('value', app.layers[app.activeLayer].fillColor);
 }
 
-/**
- * [initializeLayer description]
- * @param  {string} name    Name for Layer in paper.project
- * @param  {string} color   background fill color
- * @param  {string} texture URL for background texture
- * @param  {object} bounds  the dimensions of the canvas
- * @return {object}         Paper.js project Layer
- */
-export function initializeLayer(name, color, texture, bounds) {
+function createLayer(name, color, texture, bounds) {
   let _ = new paper.Layer();
   _.name = name;
 
   let textureImage = new paper.Raster(texture);
 
   let layerBg = new paper.Path.Rectangle(0,0, bounds._width, bounds._height);
+  layerBg.name = "layerBG";
   layerBg.set({fillColor: color})
 
   if (name !== "layerBg") {
@@ -40,13 +36,13 @@ export function initializeLayer(name, color, texture, bounds) {
       clipMask: true,
       children: [
         new paper.Path.Rectangle(0,0, bounds._width, bounds._height)
-      ]
+      ],
+      name: 'clipMask'
     });
 
     let layerGroup = new paper.Group([compClipMask, layerBg, textureImage]);
+    paper.project.addLayer(_);
   }
-
-  document.getElementsByClassName(name)[0].addEventListener('click', () => selectLayer(name) );
 }
 
 export default function setup() {
@@ -57,7 +53,11 @@ export default function setup() {
     let color = app.layers[name].fillColor || '#FFAABB';
     let texture = app.layers[name].texture ? "/assets/textures/" + app.layers[name].texture : null;
 
-    initializeLayer(name, color, texture, bounds);
+    createLayer(name, color, texture, bounds);
+
+    numOfLayers[i].addEventListener('click', function(){
+      selectLayer(this);
+    });
   }
 
   paper.project.layers.reverse();

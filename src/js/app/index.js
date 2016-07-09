@@ -25,22 +25,24 @@ window.onload = function() {
   colorPicker();
   paper.view.draw();
   $('.clear').on('click', function(){
+    let target = $(this).parent().parent()[0].className.replace(' activeLayer', '');
+
+    selectLayer(target);
     let clearConfirm = confirm("Reset layer?");
     if (clearConfirm == true) {
-      selectLayer($(this).parent().parent()[0]);
-      clearLayer(app.activeLayerIndex);
+      clearLayer(target);
     }
   });
   $('.clearAll').on('click', function(){
     var clearAllConfirm = confirm("Are you sure you want to start new?");
 
     if (clearAllConfirm == true) {
-      var numOfLayers = document.querySelectorAll(".layers > div");
-      for (var i = 0; i < numOfLayers.length; i++) {
-          selectLayer(numOfLayers[i]);
-          clearLayer(app.activeLayerIndex);
-      }
-      selectLayer(numOfLayers[0]);
+      // TODO: Actually sort out layer counting logic and get rid of this silliness.
+      clearLayer('layer1');
+      clearLayer('layer2');
+      clearLayer('layer3');
+      clearLayer('layer4');
+      selectLayer('layer4');
     }
   });
   $(".shortcut").attr("data-remodal-target", "modalKeys");
