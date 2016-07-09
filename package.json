@@ -43,7 +43,7 @@
     "filesaver.js": "^0.2.0",
     "jquery": "^2.2.1",
     "jquery-minicolors": "^2.1.10",
-    "paper": "paperjs/paper.js#prebuilt/module",
+    "paper": "^0.10.2",
     "remodal": "^1.1.0"
   }
 }
