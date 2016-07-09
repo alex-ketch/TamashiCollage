@@ -63,11 +63,13 @@ export default function() {
     }
 
     var remove_tooltip = function() {
-      tooltip.animate( { top: '-=8', opacity: 0 }, 50, function() {
+      if (tooltip) {
+        tooltip.animate( { top: '-=8', opacity: 0 }, 50, function() {
           $( this ).remove();
-      });
+        });
 
-      target.attr( 'title', tip );
+        target.attr( 'title', tip );
+      }
     };
 
     // target.bind( 'mouseleave', remove_tooltip );

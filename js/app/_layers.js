@@ -3,71 +3,57 @@ import paper from 'paper';
 import {closePath} from './_shapes.js';
 import {app} from './_settings.js';
 
-
-export function activateLayer(name, index) {
-  app.activeLayer = name.replace(/ activeLayer/, '');
-  app.activeLayerIndex = index;
-  paper.project.layers[index].activate();
-  highlightActiveLayer(name);
-  closePath();
-  // $('.picker.colorPicker').minicolors('value', app.layers[app.activeLayer].fillColor);
-}
-
 function highlightActiveLayer(target) {
   if (!target.includes('activeLayer')) {
     $(".layers > div").removeClass("activeLayer");
-    $("." + target).addClass("activeLayer");
+    document.getElementsByClassName(target)[0].className += ' activeLayer';
   }
 }
 
 export function selectLayer(layer) {
-  let target = layer;
-  switch (target.className.replace(/ activeLayer/, '')) {
-    case "layerBg":
-      activateLayer(target.className, 0);
-      break;
-    case "layer1":
-      activateLayer(target.className, 1);
-      break;
-    case "layer2":
-      activateLayer(target.className, 2);
-      break;
-    case "layer3":
-      activateLayer(target.className, 3);
-      break;
-    case "layer4":
-      activateLayer(target.className, 4);
-      break;
-    default:
-      alert("error selecting layer!");
+  let _layer = (layer.className) ? layer.className.replace(/ activeLayer/, '') : layer;
+  app.activeLayer = _layer;
+  app.activeLayerIndex = _layer.replace(/layer/, '');
+  let target = paper.project.layers[_layer];
+  target.activate();
+  highlightActiveLayer(_layer)
+  closePath();
+  // $('.picker.colorPicker').minicolors('value', app.layers[app.activeLayer].fillColor);
+}
+
+function createLayer(name, color, texture, bounds) {
+  let _ = new paper.Layer();
+  _.name = name;
+
+  let textureImage = new paper.Raster(texture);
+
+  let layerBg = new paper.Path.Rectangle(0,0, bounds._width, bounds._height);
+  layerBg.name = "layerBG";
+  layerBg.set({fillColor: color})
+
+  if (name !== "layerBg") {
+    let compClipMask = new paper.CompoundPath({
+      clipMask: true,
+      children: [
+        new paper.Path.Rectangle(0,0, bounds._width, bounds._height)
+      ],
+      name: 'clipMask'
+    });
+
+    let layerGroup = new paper.Group([compClipMask, layerBg, textureImage]);
+    paper.project.addLayer(_);
   }
 }
 
 export default function setup() {
-  var numOfLayers = document.querySelectorAll(".layers > div");
-  var bounds = paper.project.view.viewSize;
-  for (var i = 0; i < numOfLayers.length; i++) {
-    var layerName = numOfLayers[i].className.toString().replace(/ activeLayer/, '');
-    var layerColor = app.layers[layerName].fillColor;
-    var layerTexture = app.layers[layerName].texture ? "/assets/textures/" + app.layers[layerName].texture : null;
+  let numOfLayers = document.querySelectorAll(".layers > div");
+  let bounds = paper.project.view.viewSize;
+  for (let i = 0; i < numOfLayers.length; i++) {
+    let name = numOfLayers[i].className.toString().replace(/ activeLayer/, '');
+    let color = app.layers[name].fillColor || '#FFAABB';
+    let texture = app.layers[name].texture ? "/assets/textures/" + app.layers[name].texture : null;
 
-    new paper.Layer();
-
-    var textureImage = new paper.Raster(layerTexture);
-
-    var layerBg = new paper.Path.Rectangle(0,0, bounds._width, bounds._height);
-    layerBg.set({fillColor: layerColor})
-
-    if (layerName !== "layerBg") {
-      var compClipMask = new paper.CompoundPath({
-        clipMask: true,
-        children: [
-          new paper.Path.Rectangle(0,0, bounds._width, bounds._height)
-        ]
-      });
-
-      var layerGroup = new paper.Group([compClipMask, layerBg, textureImage]);
-    }
+    createLayer(name, color, texture, bounds);
 
     numOfLayers[i].addEventListener('click', function(){
       selectLayer(this);
@@ -76,5 +62,5 @@ export default function setup() {
 
   paper.project.layers.reverse();
 
-  activateLayer("layer4", 4);
+  selectLayer("layer4");
 }

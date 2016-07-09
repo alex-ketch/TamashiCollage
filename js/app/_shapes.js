@@ -22,7 +22,12 @@ export function closePath() {
     app.currentPath.closed = true;
 
     var clipGroup = paper.project.activeLayer.getItem({class: paper.CompoundPath });
-    var temp = clipGroup.subtract(app.currentPath);
+    var temp;
+    if (clipGroup) {
+      temp = clipGroup.subtract(app.currentPath);
+    } else {
+      return;
+    }
 
     if (temp.area === clipGroup.area) {
       clipGroup = clipGroup.replaceWith(clipGroup.unite(app.currentPath));
