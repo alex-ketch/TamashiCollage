@@ -48,6 +48,16 @@ window.onload = function() {
   $(".shortcut").attr("data-remodal-target", "modalKeys");
   $('[data-remodal-id=modalKeys]').remodal().open();
   $('.lassoFree').addClass("active");
+  $('.undo').on('click', function(){
+    if(app.layerCount >= 0) {
+      app.layerCount--;
+      let _ = app.undoHistory.pop();
+
+      let target = paper.project.getItem({name: _[0]})
+        .getItem({name: 'clipMask'})
+        .replaceWith(_[1])
+    }
+  });
   tooltip();
     exportCanvas();
 };

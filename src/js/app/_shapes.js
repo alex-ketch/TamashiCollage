@@ -23,6 +23,10 @@ export function closePath() {
 
     var clipGroup = paper.project.activeLayer.getItem({class: paper.CompoundPath });
     var temp;
+
+    app.undoHistory.push([clipGroup.parent.parent.name, clipGroup])
+    app.layerCount++;
+
     if (clipGroup) {
       temp = clipGroup.subtract(app.currentPath);
     } else {

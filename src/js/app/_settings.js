@@ -8,6 +8,8 @@ export var app = {
     currentPath: null,
     activeLayerIndex: 4,
     activePath: null,
+    layerCount: -1,
+    undoHistory: [],
     fillColor: "#FFAABB",
     strokeColor: "#43597D",
     layers: {
