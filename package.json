@@ -4,7 +4,8 @@
   "description": "Online collaging and art making application",
   "main": "gulpfile.js",
   "scripts": {
-    "start": "webpack-dev-server ./src/js/app/ --hot --inline"
+    "start": "webpack-dev-server ./src/js/app/ --hot --inline",
+    "publish": "webpack && node deploy.js"
   },
   "repository": {
     "type": "git",
