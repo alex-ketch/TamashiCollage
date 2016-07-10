@@ -14,7 +14,7 @@ export default function shortcuts() {
         app.currentPath.removeSegment(app.currentPath.lastSegment.index);
       }
     } else if (event.key === "space") {
-      console.log(paper.project.activeLayer);
+      // console.log(paper.project.activeLayer);
     } else if (event.key === "enter") {
       closePath();
     } else if (event.key === "1") {
